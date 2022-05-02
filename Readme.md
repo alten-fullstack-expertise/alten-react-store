@@ -1,23 +1,48 @@
-# Boilerplate for creating React npm packages with Typescript
+# Alten react store
 
-This is a boilerplate project that can be used to create npm packages with Typescript.
+A very minimal, easy to setup and use package for global storage in a React application.
 
-It supports a minimum react version from 16.8 onwards.
+Please keep in mind that this is not the most efficient way to manage global state. For larger applications a solution like MobX or Redux is advised.
 
-Run the following commands to start developing + testing.
+### Example usage
 
-1. Installation: Run the following commands one after the other: `npm install` `npm run build` `cd example` `npm install` `cd ..`
-2. Development: `npm run react-dev` <- starts react demo project, `npm run ts-dev` <- watches for Typescript changes.
+The app.tsx file:
+```tsx
+import Store from "alten-react-store";
+import { MyComponent } from "./MyComponent";
 
-Changes to you `src/index.tsx` should be immediately visible in your example react application.
+function App() {
 
-### Publish
+  return (
+    <div>
+     {/* the INITIAL_STATE holds our initial global data. */}
+      <Store INITIAL_STATE={{name: "Maike", age: 56}}>
+            {/* The global data will be used in MyComponent. */}
+          <MyComponent /> 
+      </Store>
+    </div>
+  );
+}
 
-To publish your new react package, follow the steps below.
+export default App;
+```
 
-1. In the project root run `npm run build`. This creates a build for both server side and client side projects.
-2. In the project root, change the following data in the `package.json`: name, version, description. Make sure the name field is unique. No other NPM package can have that name.
-3. If you are not logged in to npm, run the command ``npm login`` and enter your NPM credentials. If you have none, create an npm account on https://www.npmjs.com/
-4. Finally, run `npm publish`
+Now the component where we use the global data:
+```tsx
+import React from "react";
+import { useStore } from "typescript-react-test";
 
-Congrats, your package has been published!
+interface IMyComponentProps {}
+
+export const MyComponent: React.FunctionComponent<IMyComponentProps> = (props) => {
+
+    const store = useStore<{name: string, age: number}>();
+
+    return (
+        <div>
+            <div>{store.state.name}</div>
+            <button onClick={() => store.setState({...store.state, name: "Gijs"})}>Change name to Gijs</button>
+        </div>
+    );
+};
+```
