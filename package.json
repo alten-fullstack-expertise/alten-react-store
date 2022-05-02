@@ -1,7 +1,7 @@
 {
-  "name": "alten-react-typescript-npm-template",
+  "name": "alten-react-store",
   "version": "0.0.1",
-  "description": "A template for creating npm react package with Typescript. Packages are build to work on both server side and client side.",
+  "description": "An NPM package for easily creating a global store for a React application. Uses React Context.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
