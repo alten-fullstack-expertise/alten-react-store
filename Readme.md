@@ -1,6 +1,6 @@
 # Alten react store
 
-A very minimal, easy to setup and use package for global storage in a React application.
+A very minimal, easy to setup and use package for global state in a React application.
 
 Please keep in mind that this is not the most efficient way to manage global state. For larger applications a solution like MobX or Redux is advised.
 
