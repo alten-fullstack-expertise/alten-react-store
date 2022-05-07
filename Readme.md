@@ -30,7 +30,7 @@ export default App;
 Now the component where we use the global data:
 ```tsx
 import React from "react";
-import { useStore } from "alten-react-safe";
+import { useStore } from "alten-react-store";
 
 interface IMyComponentProps {}
 
