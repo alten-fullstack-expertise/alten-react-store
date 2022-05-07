@@ -30,17 +30,20 @@ export default App;
 Now the component where we use the global data:
 ```tsx
 import React from "react";
-import { useStore } from "typescript-react-test";
+import { useStore } from "alten-react-safe";
 
 interface IMyComponentProps {}
 
 export const MyComponent: React.FunctionComponent<IMyComponentProps> = (props) => {
 
+    // Simply use this hook to get access to your global data in any component.
     const store = useStore<{name: string, age: number}>();
 
     return (
         <div>
+            {/* To access your data, use store.state */}
             <div>{store.state.name}</div>
+            {/* To update data, use the store.setState() method. Simply pass your new state into this method.*/}
             <button onClick={() => store.setState({...store.state, name: "Gijs"})}>Change name to Gijs</button>
         </div>
     );
