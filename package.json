@@ -1,6 +1,6 @@
 {
   "name": "alten-react-store",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An NPM package for easily creating a global store for a React application. Uses React Context.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -26,6 +26,11 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alten-fullstack-expertise/alten-react-store"
+  },
+  "dependencies": {},
   "files": [
     "/lib"
   ]
